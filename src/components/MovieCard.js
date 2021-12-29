@@ -1,5 +1,6 @@
 import { Card, Button } from 'react-bootstrap';
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom'
 
 
 
@@ -9,16 +10,17 @@ function MovieCard({ el, movies, setMovies }) {
 
 
         <Card style={{ width: '18rem', margin: '10px', borderRadius: '20px' }}>
-            <Card.Img style={{ width: '18rem', height: '300px', borderRadius: '20px' }} variant="top" src={el.photo} />
+            <Card.Img style={{ width: '17rem', height: '290px', borderRadius: '20px', alignSelf: 'center', margin: '10px' }} variant="top" src={el.photo} />
             <Card.Body>
-                <Card.Title>{el.title}</Card.Title>
+                <Card.Title style={{ display: 'flex', justifyContent: 'center' }} >{el.title}</Card.Title>
                 <Card.Text>
                     {el.description}
                 </Card.Text>
 
 
-
             </Card.Body>
+            <div style={{ display: 'flex', justifyContent: 'center' }}><Link to={`/Details/${el.id}`} >  <Button style={{ width: '120px', alignSelf: 'center' }} variant="secondary"  >Watch trailer</Button>
+            </Link></div>
 
             <div className="Reactstars">
                 <ReactStars

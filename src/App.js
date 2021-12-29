@@ -3,6 +3,8 @@ import Filter from './components/Filter';
 import MovieList from './components/MovieList';
 import AddMovie from './components/AddMovie';
 import { useState } from 'react';
+import { Route } from 'react-router-dom';
+import Details from './components/Details';
 
 function App() {
 
@@ -14,6 +16,7 @@ function App() {
       rate: 4,
       description:
         "A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.",
+      trailer: "https://www.youtube.com/embed/oVzVdvGIC7U"
     },
     {
       id: 1,
@@ -23,6 +26,8 @@ function App() {
       rate: 4.7,
       description:
         "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+      trailer: "https://www.youtube.com/embed/gcTkNV5Vg1E"
+
     },
     {
       id: 2,
@@ -31,6 +36,8 @@ function App() {
       rate: 5,
       description:
         "Shaun Murphy, a young surgeon with autism and Savant syndrome, is recruited into the surgical unit of a prestigious hospital.",
+      trailer: "https://www.youtube.com/embed/msJggy8xtmI"
+
     },
     {
       id: 3,
@@ -40,15 +47,20 @@ function App() {
       rate: 3.5,
       description:
         "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+      trailer: "https://www.youtube.com/embed/lrcqbavlbyQ"
+
     }])
   const [rating, setRating] = useState(0);
   const [word, setWord] = useState('');
   return (
 
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-      <AddMovie movies={movies} setMovies={setMovies} />
-      <Filter setWord={setWord} setRating={setRating} />
-      <MovieList movies={movies} rating={rating} word={word} setMovies={setMovies} />
+      <Route exact path={'/'}>
+        <AddMovie movies={movies} setMovies={setMovies} />
+        <Filter setWord={setWord} setRating={setRating} />
+        <MovieList movies={movies} rating={rating} word={word} setMovies={setMovies} />
+      </Route>
+      <Route path='/Details/:x' render={(props) => <Details movies={movies} {...props} ></Details>} ></Route>
     </div>
   );
 }

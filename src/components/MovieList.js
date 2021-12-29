@@ -1,6 +1,5 @@
 import MovieCard from "./MovieCard";
 
-
 function MovieList({ setMovies, movies, rating, word }) {
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginTop: '50px' }}>

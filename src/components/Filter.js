@@ -11,8 +11,8 @@ function Filter({ setWord, setRating }) {
             <h3 style={{ textAlign: 'center' }}>Quick search</h3>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 <div>
-                    <label>Title:</label>
-                    <input type='text' onChange={(event) => setWord(event.target.value)}></input>
+                    <label style={{ fontSize: 'x-large' }} >Title</label>
+                    <input style={{ borderRadius: '10px', marginLeft: '10px' }} type='text' onChange={(event) => setWord(event.target.value)}></input>
                 </div>
                 <ReactStars
                     count={5}
